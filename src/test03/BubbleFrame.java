@@ -13,7 +13,7 @@ public class BubbleFrame extends JFrame {
         initData();
         setInitLayout();
         addEventListener();
-        // 충돌감지 백그라운드 서비스 시작
+        // 충돌감시 백그라운드 서비스 시작
         new Thread(new BackgroundPlayerService(player)).start();
     }
 
@@ -23,7 +23,16 @@ public class BubbleFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         backgroundMap = new JLabel(new ImageIcon("img/backgroundMap.png"));
+
+
+        // JFrame
+        //  Root Panal <--
+        //      Panel
         setContentPane(backgroundMap);
+
+
+
+
 
         player = new Player();
     }
@@ -57,16 +66,14 @@ public class BubbleFrame extends JFrame {
                 switch (e.getKeyCode()){
                     case KeyEvent.VK_LEFT:
                         // 이동 중이 아니고 AND 벽에 충돌하지 않은 상태일 때만 left() 호출 가능
-                        if(player.isLeft() == false && player.isLeft() == false){
-
+                        if(player.isLeft() == false && player.isLeftWallCrash() == false) {
                             player.left();
                         }
-                        // 이동 중이 아니고 AND 벽에 충돌하지 않은 상태일 때만 left() 호출 가능
                         break;
                     case KeyEvent.VK_RIGHT:
-
-                        if(player.isRight() == false && player.isRightWallCrash() ==false) {
-
+                        // 이동 중이 아니고 AND 벽에 충돌하지 않은 상태일 때만 right() 호출 가능
+                        if(player.isRight() == false && player.isRightWallCrash() == false) {
+                            player.right();
                         }
                         break;
                     case KeyEvent.VK_UP:

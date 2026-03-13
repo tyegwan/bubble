@@ -18,7 +18,7 @@ public class Player extends JLabel implements Moveable {
     private final int JUMP_SPEED = 2;      // 점프/낙하 속도
     private final int JUMP_HEIGHT = 130;   // 점프 최대 높이
 
-    // 이동 상태 플래스
+    // 이동 상태 플래그
     // true = 해당 방향으로 이동 중 (while 루프 조건)
     // false = 멈춤 (while 루프 탈출 -> Thread 종료)
     private boolean left = false;
@@ -26,11 +26,11 @@ public class Player extends JLabel implements Moveable {
     private boolean up = false;
     private boolean down = false;
 
-    // 벽 충돌 상태 플러그
-    private  boolean leftWallCrash;
+    // 벽 충돌 상태 플래그
+    private boolean leftWallCrash;
     private boolean rightWallCrash;
 
-    ///  getter
+    /// getter
     @Override
     public int getX() {
         return x;
@@ -65,12 +65,21 @@ public class Player extends JLabel implements Moveable {
         return rightWallCrash;
     }
 
+    /// setter
     public void setX(int x) {
         this.x = x;
     }
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void setLeft(boolean left) {
+        this.left = left;
+    }
+
+    public void setRight(boolean right) {
+        this.right = right;
     }
 
     public void setUp(boolean up) {
@@ -81,22 +90,12 @@ public class Player extends JLabel implements Moveable {
         this.down = down;
     }
 
+    public void setLeftWallCrash(boolean leftWallCrash) {
+        this.leftWallCrash = leftWallCrash;
+    }
+
     public void setRightWallCrash(boolean rightWallCrash) {
         this.rightWallCrash = rightWallCrash;
-    }
-
-    ///  setter
-
-
-
-
-    // BubbleFrame 의 Key 이벤트에서 호출할 수 있도록 setter 설정
-    public void setLeft(boolean left) {
-        this.left = left;
-    }
-
-    public void setRight(boolean right) {
-        this.right = right;
     }
 
 
@@ -214,11 +213,9 @@ public class Player extends JLabel implements Moveable {
                         throw new RuntimeException(e);
                     }
                 }
+                down = false;
             }
         }).start();
 
-    }
-
-    public void setLeftWallCrash(boolean b) {
     }
 }
