@@ -46,7 +46,9 @@ public class Bubble extends JLabel {
         x = player.getX();
         y = player.getY();
         setSize(50,50);
+        setLocation(x,y);
         setVisible(true);
+        setIcon(bubbleIcon);
     }
 
 }
