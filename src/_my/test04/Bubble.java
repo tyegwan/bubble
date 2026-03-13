@@ -51,4 +51,6 @@ public class Bubble extends JLabel {
         setIcon(bubbleIcon);
     }
 
+    public void right() {
+    }
 }
