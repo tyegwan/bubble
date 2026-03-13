@@ -1,4 +1,4 @@
-package test03;
+package _my.test03;
 
 
 import javax.swing.*;

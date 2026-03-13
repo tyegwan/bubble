@@ -1,6 +1,6 @@
 package _my.test02.test03;
 
-import test03.Player;
+import _my.test03.Player;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

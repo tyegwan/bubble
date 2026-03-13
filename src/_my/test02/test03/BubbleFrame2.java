@@ -1,7 +1,5 @@
 package _my.test02.test03;
 
-import test03.BackgroundPlayerService;
-
 import javax.swing.*;
 
 public class BubbleFrame2 extends JFrame {
